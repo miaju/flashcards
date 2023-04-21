@@ -9,8 +9,6 @@
     "dev": "nodemon server.js",
     "db:reset": "node bin/resetdb.js"
   },
-  "author": "Lighthouse Labs",
-  "license": "ISC",
   "dependencies": {
     "chalk": "^4.1.2",
     "dotenv": "^2.0.0",
