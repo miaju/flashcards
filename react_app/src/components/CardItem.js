@@ -6,7 +6,10 @@ export default function CardItem(props) {
   const click = () => { setClicked(!clicked) }
   return (
     <Card onClick={click}>
-      hello
+    <Card.Body>
+    { clicked ? props.back : props.front }
+    </Card.Body>
+      
     </Card>
   )
 };
