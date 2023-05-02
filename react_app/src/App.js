@@ -16,7 +16,7 @@ function App() {
     <BrowserRouter>
     <NavBar></NavBar>
     <Routes>
-      <Route path="/home" element={<Home/>}/>
+      <Route path="/" element={<Home/>}/>
       <Route path="/test" element={<CardItem card={testCard}/>}/>
     </Routes>
     </BrowserRouter>
