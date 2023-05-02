@@ -41,7 +41,16 @@
     ]
   },
   "devDependencies": {
-    "sass": "^1.62.1",
-    "sass-loader": "^13.2.2"
+    "@babel/core": "^7.20.12",
+    "@babel/eslint-parser": "^7.19.1",
+    "babel": "^6.23.0",
+    "babel-loader": "^9.1.2",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "morgan": "^1.10.0",
+    "node-sass": "^7.0.3",
+    "prop-types": "^15.8.1",
+    "sass": "^1.58.1",
+    "sass-loader": "^13.2.0",
+    "webpack": "^5.75.0"
   }
 }
