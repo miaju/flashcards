@@ -10,11 +10,10 @@ export default function CardItem(props) {
   const className = clicked ? "back" : "front"
 
   return (
-    <Card className={className} onClick={click}>
+    <Card bg="dark" text="light" className={className} onClick={click}>
     <Card.Body>
     { clicked ? card.back : card.front }
     </Card.Body>
-      
     </Card>
   )
 };
