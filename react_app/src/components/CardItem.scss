@@ -1,0 +1,26 @@
+.card {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 1s;
+}
+
+.back {
+  transform: translateX(-100%) rotateY(-180deg);
+  .card-body {
+    transform: rotateY(180deg);
+  }
+}
+
+.card-body {
+  width: 100%;
+  height: 100%;
+  line-height: 260px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  backface-visibility: hidden;
+}
