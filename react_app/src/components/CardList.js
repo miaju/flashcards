@@ -4,11 +4,11 @@ import CardItem from "./CardItem";
 import Button from 'react-bootstrap/Button';
 
 export default function CardList(props) {
-  const [curCard, setCurCard] = useState(null)
+  const [curIndex, setCurIndex] = useState(null)
   let cards = [];
 
   useEffect(() => {
-    setCurCard(0);
+    setCurIndex(0);
   }, [])
 
   if (props.cards) {
@@ -23,21 +23,21 @@ export default function CardList(props) {
 
   function changeCard(action) {
 
-    if (action === "prev" && curCard !== 0) {
-      return setCurCard(curCard - 1);
+    if (action === "prev" && curIndex !== 0) {
+      return setCurIndex(curIndex - 1);
     }
 
-    if (action === "next" && curCard !== cards.length) {
-      return setCurCard(curCard + 1);
+    if (action === "next" && curIndex !== cards.length) {
+      return setCurIndex(curIndex + 1);
     }
 
   }
 
   return (
     <>
-    {cards[curCard]}
-    <Button disabled={ curCard === 0} onClick={() => changeCard("prev")}>Prev</Button>
-    <Button disabled={ curCard === cards.length - 1 } onClick={() => changeCard("next")}>Next</Button>
+    {cards[curIndex]}
+    <Button disabled={ curIndex === 0} onClick={() => changeCard("prev")}>Prev</Button>
+    <Button disabled={ curIndex === cards.length - 1 } onClick={() => changeCard("next")}>Next</Button>
     </>
   );
 };
