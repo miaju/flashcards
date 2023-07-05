@@ -5,11 +5,15 @@ import "./App.scss";
 
 import NavBar from "./components/Navbar";
 import CardItem from './components/CardItem';
+import CardList from "./components/CardList"
 import Home from "./components/Home";
 
 function App() {
 
-  const testCard = {front: "front", back: "back"};
+  const testCards = [
+    {front: "front one", back: "back one"},
+    {front: "front two", back: "back two"}
+  ];
 
   return (
     <div className="App">
@@ -17,7 +21,7 @@ function App() {
     <NavBar></NavBar>
     <Routes>
       <Route path="/" element={<Home/>}/>
-      <Route path="/test" element={<CardItem card={testCard}/>}/>
+      <Route path="/test" element={<CardList cards={testCards}/>}/>
     </Routes>
     </BrowserRouter>
     </div>
