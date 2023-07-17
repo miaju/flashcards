@@ -4,7 +4,6 @@ import "./App.scss";
 //import axios from "axios";
 
 import NavBar from "./components/Navbar";
-import CardItem from './components/CardItem';
 import CardList from "./components/CardList"
 import Home from "./components/Home";
 
