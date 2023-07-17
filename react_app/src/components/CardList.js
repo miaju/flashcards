@@ -7,6 +7,7 @@ export default function CardList(props) {
   const [curIndex, setCurIndex] = useState(null)
   const [clicked, setClicked] = useState(props.clicked);
   const click = () => { setClicked(!clicked) }
+
   let cards = [];
 
   useEffect(() => {
