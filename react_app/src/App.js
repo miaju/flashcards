@@ -12,7 +12,8 @@ function App() {
 
   const testCards = [
     {front: "front one", back: "back one"},
-    {front: "front two", back: "back two"}
+    {front: "front two", back: "back two"},
+    {front: "front three", back: "back three"}
   ];
 
   return (

@@ -5,6 +5,9 @@ import Button from 'react-bootstrap/Button';
 
 export default function CardList(props) {
   const [curIndex, setCurIndex] = useState(null)
+  const [clicked, setClicked] = useState(props.clicked);
+  const click = () => { setClicked(!clicked) }
+
   let cards = [];
 
   useEffect(() => {
@@ -16,12 +19,15 @@ export default function CardList(props) {
       return(
         <CardItem
           card={card}
+          clicked={clicked}
+          click={click}
         />
       );
     });
   };
 
   function changeCard(action) {
+    setClicked(false);
 
     if (action === "prev" && curIndex !== 0) {
       return setCurIndex(curIndex - 1);
