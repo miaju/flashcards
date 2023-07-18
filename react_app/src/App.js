@@ -6,14 +6,15 @@ import "./App.scss";
 import NavBar from "./components/Navbar";
 import CardList from "./components/CardList"
 import Home from "./components/Home";
+import NewCard from "./components/NewCard";
+
+const testCards = [
+  {front: "front one", back: "back one"},
+  {front: "front two", back: "back two"},
+  {front: "front three", back: "back three"}
+];
 
 function App() {
-
-  const testCards = [
-    {front: "front one", back: "back one"},
-    {front: "front two", back: "back two"},
-    {front: "front three", back: "back three"}
-  ];
 
   return (
     <div className="App">
@@ -21,7 +22,7 @@ function App() {
     <NavBar></NavBar>
     <Routes>
       <Route path="/" element={<Home/>}/>
-      <Route path="/test" element={<CardList cards={testCards}/>}/>
+      <Route path="/test" element={<NewCard/>}/>
     </Routes>
     </BrowserRouter>
     </div>
