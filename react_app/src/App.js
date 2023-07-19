@@ -4,9 +4,9 @@ import "./App.scss";
 //import axios from "axios";
 
 import NavBar from "./components/Navbar";
-import CardList from "./components/CardList"
+import CardList from "./components/Cards/CardList"
 import Home from "./components/Home";
-import NewCard from "./components/NewCard";
+import NewCard from "./components/Cards/NewCard";
 
 const testCards = [
   {front: "front one", back: "back one"},
@@ -19,11 +19,16 @@ function App() {
   return (
     <div className="App">
     <BrowserRouter>
-    <NavBar></NavBar>
-    <Routes>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/test" element={<NewCard/>}/>
-    </Routes>
+      <NavBar></NavBar>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/test" />
+        <Route path="/new" />
+        <Route path="/cards" />
+        <Route path="/profile" />
+        <Route path="/logout" />
+        <Route path="/login" />    
+      </Routes>
     </BrowserRouter>
     </div>
   );
