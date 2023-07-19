@@ -4,9 +4,8 @@ import "./App.scss";
 //import axios from "axios";
 
 import NavBar from "./components/Navbar";
-import CardList from "./components/Cards/CardList"
 import Home from "./components/Home";
-import NewCard from "./components/Cards/NewCard";
+import { CardList, NewCard } from "./components/Cards/index"
 import { Login, Logout, Profile } from "./components/User/index";
 
 const testCards = [
