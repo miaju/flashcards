@@ -2,11 +2,8 @@ import CardItem from "./CardItem";
 import CardList from "./CardList";
 import NewCard from "./NewCard";
 
-
-const components = {
+export  {
   CardItem,
   CardList,
   NewCard
 }
-
-export default components;

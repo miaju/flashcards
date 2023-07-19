@@ -22,12 +22,11 @@ function App() {
       <NavBar></NavBar>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/test" />
-        <Route path="/new" />
-        <Route path="/cards" />
-        <Route path="/profile" />
-        <Route path="/logout" />
-        <Route path="/login" />    
+        <Route path="/new" element={<NewCard/>}/>
+        <Route path="/cards" element={<CardList cards={testCards} />}/>
+        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/logout" element={<Logout/>}/>
+        <Route path="/login" element={<Login/>}/>    
       </Routes>
     </BrowserRouter>
     </div>
