@@ -7,6 +7,7 @@ import NavBar from "./components/Navbar";
 import CardList from "./components/Cards/CardList"
 import Home from "./components/Home";
 import NewCard from "./components/Cards/NewCard";
+import { Login, Logout, Profile } from "./components/User/index";
 
 const testCards = [
   {front: "front one", back: "back one"},
