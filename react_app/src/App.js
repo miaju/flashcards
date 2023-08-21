@@ -14,6 +14,12 @@ const testCards = [
   {front: "front three", back: "back three"}
 ];
 
+const user = {
+  email: "mia@email.com",
+  username: "miaju",
+  userId: 1
+}
+
 function App() {
 
   return (
