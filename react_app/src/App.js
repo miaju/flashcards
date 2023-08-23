@@ -14,7 +14,7 @@ const testCards = [
   {front: "front three", back: "back three"}
 ];
 
-const user = {
+const testUser = {
   email: "mia@email.com",
   username: "miaju",
   userId: 1
@@ -30,7 +30,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/new" element={<NewCard/>}/>
         <Route path="/cards" element={<CardList cards={testCards} />}/>
-        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/profile" element={<Profile user={testUser}/>}/>
         <Route path="/logout" element={<Logout/>}/>
         <Route path="/login" element={<Login/>}/>    
       </Routes>
