@@ -1,40 +1,35 @@
-import { React } from "react";
+import { React, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
 //import axios from "axios";
 
+import useAppData from "./hooks/useAppData";
 import NavBar from "./components/Navbar";
 import Home from "./components/Home";
 import { CardList, NewCard } from "./components/Cards/index"
 import { Login, Logout, Profile } from "./components/User/index";
+import { Nav } from "react-bootstrap";
 
-const testCards = [
-  {front: "front one", back: "back one"},
-  {front: "front two", back: "back two"},
-  {front: "front three", back: "back three"}
-];
-
-const testUser = {
-  email: "mia@email.com",
-  username: "miaju",
-  userId: 1
-}
 
 function App() {
+  const {
+    state,
+    updateLogout
+  } = useAppData();
 
   return (
     <div className="App">
     <BrowserRouter>
-      <NavBar></NavBar>
+      <NavBar logout={updateLogout}/>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/new" element={<NewCard/>}/>
-        <Route path="/cards" element={<CardList cards={testCards} />}/>
-        <Route path="/profile" element={<Profile user={testUser}/>}/>
-        <Route path="/logout" element={<Logout/>}/>
+        <Route path="/cards" element={<CardList cards={state.curCards} />}/>
+        <Route path="/profile" element={<Profile user={state.user} logout={updateLogout} show={state.showLogout}/>}/>
         <Route path="/login" element={<Login/>}/>    
       </Routes>
     </BrowserRouter>
+    {state.showLogout && <Logout show={state.showLogout} logout={updateLogout}/>}
     </div>
   );
 }
