@@ -16,7 +16,7 @@ export default function Logout({show, logout}) {
         </Modal.Header>
 
         <Modal.Body>
-          <p>Are you sure you want to logout? You will have to login again to access your flashcards and other data. </p>
+          <p>Are you sure you want to logout? You will have to login again to access your study sets and other data. </p>
         </Modal.Body>
 
         <Modal.Footer>
