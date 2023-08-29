@@ -15,8 +15,8 @@ export default function Profile({ user, logout, show }) {
         <div className="info">
           <p>Name: {user.username}</p>
           <p>Email: {user.email}</p>
-          <p><Button size="sm" variant="outline-secondary" href="/pets/view"> View My Study Sets </Button></p>
-          <p><Button size="sm" variant="outline-secondary" href="/pets/new">Create New Study Set </Button></p>
+          <p><Button size="sm" variant="outline-secondary" href="/cards"> View My Study Sets </Button></p>
+          <p><Button size="sm" variant="outline-secondary" href="/new">Create New Study Set </Button></p>
           <p><Button size="lg" variant="danger" onClick={() => logout(true)}>Logout</Button></p>
         </div>
       </div>
