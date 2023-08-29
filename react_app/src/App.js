@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
 //import axios from "axios";
@@ -8,10 +8,9 @@ import NavBar from "./components/Navbar";
 import Home from "./components/Home";
 import { CardList, NewCard } from "./components/Cards/index"
 import { Login, Logout, Profile } from "./components/User/index";
-import { Nav } from "react-bootstrap";
 
 
-function App() {
+export default function App() {
   const {
     state,
     updateLogout
@@ -20,7 +19,7 @@ function App() {
   return (
     <div className="App">
     <BrowserRouter>
-      <NavBar logout={updateLogout}/>
+      <NavBar logout={updateLogout} user={state.user}/>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/new" element={<NewCard/>}/>
@@ -33,5 +32,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
