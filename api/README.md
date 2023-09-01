@@ -2,11 +2,12 @@
 
 ## Getting Started
 
-1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
-2. Update the .env file with your correct local information
-3. Install dependencies: `npm i`
-4. Reset database: `npm run db:reset`
-5. Run the server `npm run start`, run the server with nodemon: `npm run dev`
+1. Make sure you are in the api folder on your computer
+2. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
+3. Update the .env file with your correct local information
+4. Install dependencies: `npm i`
+5. Reset database: `npm run db:reset`
+6. Run the server `npm run start`, run the server with nodemon: `npm run dev`
 
 - Note: when nodemon is used you should not have to restart your server when edits are made
 
