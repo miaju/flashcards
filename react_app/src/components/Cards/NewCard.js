@@ -1,27 +1,49 @@
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-export default function NewCard() {
-  const [state, setState] = useState({
+export default function NewCard({id, state, setState}) {
+  const [card, setCard] = useState({
     front: '',
     back: '',
-    err: false
   });
+
+  function updateCardFront(event) {
+    setCard({...card, front: event.target.value});
+    const cards = {
+      ...state.cards
+    };
+    cards[id] = card;
+    setState({
+      ...state,
+      cards,
+      err: (card.front === "" || card.back === "")
+    });
+    console.log(card);
+  }
+
+  function updateCardBack(event) {
+    setCard({...card, back: event.target.value});
+    const cards = {
+      ...state.cards
+    }
+    cards[id] = card;
+    setState({
+      ...state,
+      cards,
+      err: (card.front === "" || card.back === "")
+    });
+  }
 
   return(
     <li>
-      <div className="form-error">
-        {state.showErr && "Something went wrong. Please make sure that the inputs are non-empty and try again."}
-      </div>
       <Form>
         <Form.Group className="mb-3" controlId="newCard.front">
           <Form.Label>Flashcard front</Form.Label>
-          <Form.Control value={state.front} onChange={(event) => {setState({...state, front: event.target.value, err: false})}} as="textarea" rows={1} />
+          <Form.Control value={card.front} onChange={(event) => updateCardFront(event)} as="textarea" rows={1} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="newCard.back">
           <Form.Label>Flashcard back</Form.Label>
-          <Form.Control value={state.back} onChange={(event) => {setState({...state, back: event.target.value, err: false})}} as="textarea" rows={1} />
+          <Form.Control value={card.back} onChange={(event) => updateCardBack(event)} as="textarea" rows={1} />
         </Form.Group>
       </Form>
     </li>
