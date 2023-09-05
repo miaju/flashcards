@@ -17,13 +17,18 @@ export default function useAppData() {
   const [state, setState] = useState({
     user: testUser,
     curCards: testCards,
-    showLogout: false
+    showLogout: false,
+    newCards: []
   });
 
   const updateLogout = show => setState({...state, showLogout: show});
+  
+  function updateNewCards(newCardsArr) {
+    setState({...state, newCards: newCardsArr});
+  }
    
   return {
     state,
-    updateLogout
+    updateLogout,
   }
 }
