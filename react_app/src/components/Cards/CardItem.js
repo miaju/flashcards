@@ -4,7 +4,6 @@ import { faLightbulb } from '@fortawesome/free-solid-svg-icons'
 import Card from 'react-bootstrap/Card';
 
 import "./CardItem.scss"
-import { useState } from 'react';
 
 export default function CardItem({clicked, click, card, hint, setState, state}) {
   const className = clicked ? "back" : "front"
