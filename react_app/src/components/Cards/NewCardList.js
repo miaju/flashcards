@@ -16,7 +16,8 @@ export default function NewCardList() {
     showCardErr: false,
     showTitleErr: false,
     title: "",
-    description: ""
+    description: "",
+    user: ""
   });
 
   function addCard() {

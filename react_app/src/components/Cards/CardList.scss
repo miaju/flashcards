@@ -1,0 +1,42 @@
+#bottom-btns {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  .btn {
+    margin: 15px;
+    height: 50px;
+    width: 50px;
+    font-size: larger;
+    background-color: white;
+    color: grey;
+    border: 3px solid grey;
+    border-radius: 50%;
+    &:hover {
+      transform: scale(1.1);
+      background-color: grey;
+      color: white;
+    }
+  }
+}
+
+#show-cards{
+  display: grid;
+  height: 80vh;
+  #title {
+    padding-left: 10%;
+    padding-top: 10px;
+    justify-self: left;
+    height: 50%;
+  }
+  #user {
+    padding-left: 10%;
+    justify-content: left;
+  }
+  .card{
+    justify-self: center;
+    height: 55vh;
+  }
+}
+
