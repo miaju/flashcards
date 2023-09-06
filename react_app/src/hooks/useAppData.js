@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 //import axios from "axios";
 
-const testCards = [
-  {front: "front one", back: "back one"},
-  {front: "front two", back: "back two"},
-  {front: "front three", back: "back three"}
-];
+const testCards = {
+  title: 'Test Cards 1',
+  description: 'this is the first test card set',
+  user: "miaju",
+  cards: [
+    {front: "front one", back: "back one"},
+    {front: "front two", back: "back two"},
+    {front: "front three", back: "back three"}
+  ]
+}
 
 const testUser = {
   email: "mia@email.com",

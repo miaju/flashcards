@@ -1,25 +1,30 @@
-import {useEffect, useState} from "react";
+import { useState } from "react";
+import Button from 'react-bootstrap/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRightLong, faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 
 import CardItem from "./CardItem";
-import Button from 'react-bootstrap/Button';
+import './CardList.scss';
 
-export default function CardList(props) {
-  const [curIndex, setCurIndex] = useState(null)
-  const [clicked, setClicked] = useState(props.clicked);
-  const click = () => { setClicked(!clicked) }
+export default function CardList({ curCards }) {
+  const [state, setState] = useState({
+    curIndex: 0,
+    clicked: false,
+    hint: false
+  })
+  const click = () => { setState({...state, clicked: !state.clicked}) }
 
   let cards = [];
 
-  useEffect(() => {
-    setCurIndex(0);
-  }, [])
-
-  if (props.cards) {
-    cards = props.cards.map((card) => {
+  if (curCards) {
+    cards = curCards.cards.map((card) => {
       return(
         <CardItem
+          hint={state.hint}
+          state={state}
+          setState={setState}
           card={card}
-          clicked={clicked}
+          clicked={state.clicked}
           click={click}
         />
       );
@@ -27,23 +32,26 @@ export default function CardList(props) {
   };
 
   function changeCard(action) {
-    setClicked(false);
-
-    if (action === "prev" && curIndex !== 0) {
-      return setCurIndex(curIndex - 1);
+    if (action === "prev" && state.curIndex !== 0) {
+      return setState({...state, curIndex: state.curIndex - 1, clicked: false, hint: false});
     }
 
-    if (action === "next" && curIndex !== cards.length) {
-      return setCurIndex(curIndex + 1);
+    if (action === "next" && state.curIndex !== curCards.length) {
+      return setState({...state, curIndex: state.curIndex + 1, clicked: false, hint: false});
     }
 
   }
 
   return (
-    <>
-    {cards[curIndex]}
-    <Button disabled={ curIndex === 0} onClick={() => changeCard("prev")}>Prev</Button>
-    <Button disabled={ curIndex === cards.length - 1 } onClick={() => changeCard("next")}>Next</Button>
-    </>
+    <div id='show-cards'>
+      <h4 id='title'>{curCards.title}</h4>
+      {cards[state.curIndex]}
+      <div id="bottom-btns">
+        <Button disabled={ state.curIndex === 0} onClick={() => changeCard("prev")}><FontAwesomeIcon icon={faArrowLeftLong}/></Button>
+        <div>{state.curIndex + 1} / {curCards.cards.length}</div>
+        <Button disabled={ state.curIndex === curCards.cards.length - 1 } onClick={() => changeCard("next")}><FontAwesomeIcon icon={faArrowRightLong}/></Button>
+      </div>
+      <h5 id="user">Created by: {curCards.user}</h5>
+    </div>
   );
 };

@@ -23,7 +23,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/new" element={<NewCardList/>}/>
-        <Route path="/cards" element={<CardList cards={state.curCards} />}/>
+        <Route path="/cards" element={<CardList curCards={state.curCards} />}/>
         <Route path="/profile" element={<Profile user={state.user} logout={updateLogout} show={state.showLogout}/>}/>
         <Route path="/login" element={<Login/>}/>    
       </Routes>

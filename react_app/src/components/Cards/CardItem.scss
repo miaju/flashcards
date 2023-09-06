@@ -1,6 +1,6 @@
 .card {
   position: relative;
-  width: 50%;
+  width: 80%;
   height: 100%;
   cursor: pointer;
   transform-style: preserve-3d;
@@ -23,4 +23,17 @@
   font-weight: bold;
   font-size: 40px;
   backface-visibility: hidden;
+  .card-subtitle {
+    display: flex;
+    justify-content: space-between;
+    #hint {
+      &:hover{
+        transform: scale(1.1);
+        color: white;
+        svg{
+          color: yellow;
+        }
+      }
+    }
+  }
 }
