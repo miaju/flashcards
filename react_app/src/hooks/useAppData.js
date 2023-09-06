@@ -22,10 +22,6 @@ export default function useAppData() {
   });
 
   const updateLogout = show => setState({...state, showLogout: show});
-  
-  function updateNewCards(newCardsArr) {
-    setState({...state, newCards: newCardsArr});
-  }
    
   return {
     state,
