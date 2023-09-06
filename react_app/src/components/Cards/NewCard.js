@@ -1,43 +1,71 @@
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Card from 'react-bootstrap/Card';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRightLeft, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 
-import CardItem from './CardItem';
+import "./NewCard.scss";
 
-export default function NewCard(props) {
-  const [front, setFront] = useState('');
-  const [back, setBack] = useState('');
-  const [clicked, setClicked] = useState(false);
-  const [showErr, setShowErr] = useState(false);
+export default function NewCard({id, state, setState}) {
+  const [card, setCard] = useState({
+    front: '',
+    back: '',
+  });
 
-  const click = () => { setClicked(!clicked) }
+  function updateCardFront(event) {
+    setCard({...card, front: event.target.value});
+    const cards = state.cards;
+    cards[id] = card;
+    setState({
+      ...state,
+      cards,
+      showCardErr: false
+    });
+  }
 
-  function submit() {
-    if (front === '' || back === '') {
-      return setShowErr(true);
-    }
-    console.log(front, back);
+  function updateCardBack(event) {
+    setCard({...card, back: event.target.value});
+    const cards = state.cards;
+    cards[id] = card;
+    setState({
+      ...state,
+      cards,
+      showCardErr: false
+    });
+  }
+
+  function del() {
+    const tempCards = state.cards;
+    const newCount = state.numOfCards -1 
+    tempCards.splice(id, 1);
+    setState({
+      ...state,
+      cards: tempCards,
+      numOfCards: newCount
+    })
+  }
+
+  function swap() {
+    const temp = card.front;
+    setCard({ 
+      ...card,
+      front: card.back,
+      back: temp
+    });
   }
 
   return(
-    <>
-      <div className="form-error">
-        {showErr && "Something went wrong. Please make sure that the inputs are non-empty and try again."}
-      </div>
-      <Form>
-        <Form.Group className="mb-3" controlId="newCard.front">
-          <Form.Label>Flashcard front</Form.Label>
-          <Form.Control value={front} onChange={(event) => {setFront(event.target.value); setShowErr(false)}} as="textarea" rows={1} />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="newCard.back">
-          <Form.Label>Flashcard back</Form.Label>
-          <Form.Control value={back} onChange={(event) => {setBack(event.target.value); setShowErr(false)}} as="textarea" rows={1} />
-        </Form.Group>
+    <Card id="new-card">
+    <Card.Title>
+      {id + 1}
+      <FontAwesomeIcon id='delete' icon={faTrashCan} onClick={del}/>
+    </Card.Title>
+      <Form id="form">
+        <Form.Control id="input" value={card.front} onChange={(event) => updateCardFront(event)} as="textarea" rows={1} placeholder="Enter term"/>
+        <FontAwesomeIcon id="swap-icon" icon={faRightLeft} onClick={swap}/>
+        <Form.Control id="input" value={card.back} onChange={(event) => updateCardBack(event)} as="textarea" rows={1} placeholder="Enter description"/>
       </Form>
-      <CardItem card={{front, back}} clicked={clicked} click={click}/>
-      <Button variant="primary" onClick={submit}>
-        Submit
-      </Button>
-    </>
-  ); 
-};
+    </Card>
+      
+  )
+}

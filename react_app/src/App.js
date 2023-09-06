@@ -6,7 +6,7 @@ import "./App.scss";
 import useAppData from "./hooks/useAppData";
 import NavBar from "./components/Navbar";
 import Home from "./components/Home";
-import { CardList, NewCard } from "./components/Cards/index"
+import { CardList, NewCardList } from "./components/Cards/index"
 import { Login, Logout, Profile } from "./components/User/index";
 
 
@@ -22,7 +22,7 @@ export default function App() {
       <NavBar logout={updateLogout} user={state.user}/>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/new" element={<NewCard/>}/>
+        <Route path="/new" element={<NewCardList/>}/>
         <Route path="/cards" element={<CardList cards={state.curCards} />}/>
         <Route path="/profile" element={<Profile user={state.user} logout={updateLogout} show={state.showLogout}/>}/>
         <Route path="/login" element={<Login/>}/>    

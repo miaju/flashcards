@@ -1,0 +1,70 @@
+#add-new-card {
+  padding: 10px;
+  margin: 15px;
+  border-bottom: 1px solid black;
+  width: 90%;
+  &:hover{
+    cursor: default;
+  }
+  #add{
+    display: flex;
+    justify-content: space-around;
+    #add-text:hover{
+      transform: scale(1.1);
+      color:#9c50cf;
+      cursor: pointer;
+    }
+  }
+}
+
+#top{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2%;
+  #info{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    justify-self: center;
+    padding: 2%;
+  }
+  #title-descrip{
+    display: flex;
+    justify-content: space-between;
+    *{
+      width: 48%;
+    }
+    .title {
+      height: 52%;
+    }
+  }
+}
+
+#bottom-create-btn{
+  font-size: larger;
+  position: relative;
+  left: 90%;
+  margin-right: 5%;
+}
+
+#new-cards{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.form-error{
+  display: flex;
+  margin-left: 5%;
+  h6 {
+    padding: 5px;
+    color: red;
+    border: 1px solid red;
+    border-radius: 3px;
+  }
+  
+}
+
